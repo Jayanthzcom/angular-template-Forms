@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div id="user-data" 
+             ngModelGroup="userData"
+             #userData="ngModelGroup"
+             >
+                
+          <div class="form-group">
+            <label for="email">Mail</label>
+            <input type="email" 
+                   id="email" 
+                   class="form-control"
+                   ngModel
+                   name="email"
+                   required
+                   email
+                   #email="ngModel">
+                   <span class="help-block" *ngIf="!email.valid && email.touched">
+                     Please et  ner a valid mail
+                   </span>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" 
+                     class="form-control" 
+                     id="exampleInputPassword1" 
+                     placeholder="Password"
+                     name="password"
+                     ngModel
+                     required
+                     #passwordl="ngModel">
+                     <span class="help-block" *ngIf="!password.valid">
+                      Please enter a valid password
+                    </span>
+            </div>
+            
+         
+        <div class="form-group">
+          <label for="subscriptions">Subscriptions</label>
+          <select 
+                  id="subscription" 
+                  class="form-control"
+                  [ngModel]="defaultSubscription"
+                  name="subscription">
+            <option value="best">Best</option>
+            <option value="advanced">Advanced</option>
+            <option value="pro">Pro</option>
+          </select>
+        </div>
+        <span class="help-block" *ngIf="!userData.valid && userData.touched">
+          userdata is invalid
+        </span>
+      </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+      </form>    
+    </div>
+  </div>
+  <hr>
+<div class="row col-xs-12" *ngIf="submitted">
+  <h3>Your Data </h3>
+  
+  <p>Mail: {{ user.email }}</p>
+  <p>Password:  {{ user.password }}</p>
+  <p>subscription: {{ user.subscription }}</p>
+ 
+</div>
+</div>
