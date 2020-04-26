@@ -1,0 +1,26 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="userData">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+        <span class="help-block" *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched "> Please enter a valid email!</span>
+      
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Project Name</label>
+        <input type="text" class="form-control" id="projectName" formControlName="projectName">
+        
+        
+      </div>
+    </div> 
+      <div class="form-group">
+        <label for="sel1">Project Status</label>
+        <select class="form-control" id="sel1" name="projectStatus" formControlName="projectStatus">
+          <option>Stable</option>
+          <option>Critical</option>
+          <option>Finised</option>
+        </select>
+      </div>
+    
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
