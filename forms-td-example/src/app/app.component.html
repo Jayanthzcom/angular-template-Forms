@@ -2,53 +2,117 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <div id="user-data" 
-             ngModelGroup="userData"
-             #userData="ngModelGroup"
-             >
+
+          <div id="user-data" 
+          ngModelGroup="userData"
+          #userData="ngModelGroup"
+          >
+
+
+              <div class="form-group">
+                  <label for="allergy">Do you have allergies?</label>
+                  <select 
+                          id="allergy" 
+                          class="form-control"
+                          [ngModel]="defaultAllergy"
+                          name="allergy">
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                   
+                  </select>
+                </div>
+
                 
-          <div class="form-group">
-            <label for="email">Mail</label>
-            <input type="email" 
-                   id="email" 
-                   class="form-control"
-                   ngModel
-                   name="email"
-                   required
-                   email
-                   #email="ngModel">
-                   <span class="help-block" *ngIf="!email.valid && email.touched">
-                     Please et  ner a valid mail
-                   </span>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" 
-                     class="form-control" 
-                     id="exampleInputPassword1" 
-                     placeholder="Password"
-                     name="password"
-                     ngModel
-                     required
-                     #passwordl="ngModel">
-                     <span class="help-block" *ngIf="!password.valid">
-                      Please enter a valid password
-                    </span>
-            </div>
+
+              <div class="form-group">
+                  <label for="gender">What is your gender?</label>
+                  <select 
+                          id="gender" 
+                          class="form-control"
+                          [ngModel]="defaultGender"
+                          name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                   
+                  </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="birthdate">What is your date of birth?</label>
+      
+                    <input type="date" id="start" name="trip-start"
+                           value="2018-07-22"
+                           class="form-control"
+                           [ngModel]=""
+                           name="date" 
+                           #date>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput">What is your country of Birth?</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" 
+                    ngModel
+                    name="country"
+                    required
+                    country
+                    #country="ngModel">
+                    <span class="help-block" *ngIf="!country.valid && country.touched">
+                        Please enter a valid country
+                      </span>
+                  </div>
+
+       
+                
+        
             
          
         <div class="form-group">
-          <label for="subscriptions">Subscriptions</label>
+          <label for="subscriptions">What is your marital status?</label>
           <select 
-                  id="subscription" 
+                  id="marital" 
                   class="form-control"
-                  [ngModel]="defaultSubscription"
-                  name="subscription">
-            <option value="best">Best</option>
-            <option value="advanced">Advanced</option>
-            <option value="pro">Pro</option>
+                  [ngModel]="defaultMarital"
+                  name="marital">
+            <option value="Unmarried">Unmaried</option>
+            <option value="Married">Married</option>
+          
           </select>
         </div>
+
+        <div class="form-group">
+            <label for="subscriptions">Do you Smoke?</label>
+            <select 
+                    id="smoke" 
+                    class="form-control"
+                    [ngModel]="defaultSmoke"
+                    name="smoke">
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            
+            </select>
+          </div>
+
+          <div class="form-group">
+              <label for="subscriptions">Do you drink alcohol?</label>
+              <select 
+                      id="drink" 
+                      class="form-control"
+                      [ngModel]="defaultDrink"
+                      name="drink">
+                <option value="Yes">yes</option>
+                <option value="No">No</option>
+              
+              </select>
+          </div>
+
+          
+
+
+
+
+
         <span class="help-block" *ngIf="!userData.valid && userData.touched">
           userdata is invalid
         </span>
@@ -64,6 +128,13 @@
   <p>Mail: {{ user.email }}</p>
   <p>Password:  {{ user.password }}</p>
   <p>subscription: {{ user.subscription }}</p>
+  <p>allergy: {{ user.allergy  }}</p>
+  <p>date : {{user.date}}</p>
+  <p>gender: {{ user.gender }}</p>
+  <p>country: {{ user.country }}</p>
+  <p>marital staus : {{ user.marital }}</p>
+  <p>smoke: {{ user.smoke }}</p>
+  <p>Drinking staus : {{ user.drink }}</p>
  
 </div>
 </div>
